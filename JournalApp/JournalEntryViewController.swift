@@ -12,12 +12,13 @@ class JournalEntryViewController: UIViewController {
 
     var journalEntry : JournalEntry?
     
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var entryTextField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        contentLabel.text = journalEntry?.content
+        self.title = journalEntry?.date
+        entryTextField.text = journalEntry?.content
         
     }
     
