@@ -12,7 +12,9 @@ class JournalTableViewController: UITableViewController {
     
     
     let cellIdentity = "JournalEntryCell"
+    
     let journalEntrySegueId = "showJournalEntry"
+    let newEntrySegueId = "createJournalEntry"
     
     // var journalEntries = [JournalEntry]()
     
@@ -91,6 +93,10 @@ class JournalTableViewController: UITableViewController {
      }
      */
     
+    func refresh() {
+        tableView.reloadData()
+    }
+    
     
     // MARK: - Navigation
     
@@ -117,6 +123,9 @@ class JournalTableViewController: UITableViewController {
         //                        destinationVC.journalEntry = entry
         //            }
         //        }
+        print("Jounrnal count \(journal.count)")
+       
+        
         
         if segue.identifier == journalEntrySegueId {
             
@@ -127,9 +136,12 @@ class JournalTableViewController: UITableViewController {
                 
             destinationVC.journalEntry = entry
 
+        } else if segue.identifier == newEntrySegueId {
+            guard let destinationVC = segue.destination as? NewJournalEntryViewController else {return}
+            
+            destinationVC.journal = journal
+            destinationVC.journalVC = self
         }
-        
-        
         
     }
 }

@@ -10,20 +10,31 @@ import UIKit
 
 class NewJournalEntryViewController: UIViewController {
 
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     @IBOutlet weak var journalEntryText: UITextView!
     
+    var journal : Journal?
     
+    var journalVC : JournalTableViewController?
+    
+    var entry = JournalEntry(content: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         journalEntryText.becomeFirstResponder()
+        //self.title = entry.date
+        navBar.topItem?.title = entry.date
     }
     
 
     @IBAction func save(_ sender: UIBarButtonItem) {
-        let entry = JournalEntry(content: journalEntryText.text)
+        entry.content = journalEntryText.text
+        journal?.add(entry: entry)
         
-        print(entry.content)
+        journalVC?.refresh()
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -35,4 +46,7 @@ class NewJournalEntryViewController: UIViewController {
     }
     */
 
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 }

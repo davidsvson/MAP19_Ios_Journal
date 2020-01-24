@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" id="k4e-tK-uef">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BqN-qa-xSM">
                             <connections>
-                                <segue destination="tpb-ab-YbN" kind="show" id="Hhg-BK-nJt"/>
+                                <segue destination="tpb-ab-YbN" kind="presentation" identifier="createJournalEntry" modalPresentationStyle="automatic" id="Hhg-BK-nJt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -50,7 +50,7 @@
             <objects>
                 <viewController id="tpb-ab-YbN" customClass="NewJournalEntryViewController" customModule="JournalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3j2-M1-3Yc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aGg-cv-Onx">
@@ -61,19 +61,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1C7-P0-Zde">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="Ioi-Ut-mLf">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ExC-eF-eGH">
+                                            <connections>
+                                                <action selector="cancel:" destination="tpb-ab-YbN" id="EJ5-2i-hcX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2qi-cW-xk4">
+                                            <connections>
+                                                <action selector="save:" destination="tpb-ab-YbN" id="wWZ-oE-C26"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="GgP-Pg-p9l"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2HW-Nk-GIY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9f8-Eh-SXu">
-                            <connections>
-                                <action selector="save:" destination="tpb-ab-YbN" id="CDY-Ci-dt5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="journalEntryText" destination="aGg-cv-Onx" id="Xx9-7D-vR7"/>
+                        <outlet property="navBar" destination="1C7-P0-Zde" id="14h-kO-lzZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNC-of-YL5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
