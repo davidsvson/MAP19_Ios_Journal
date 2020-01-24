@@ -33,11 +33,52 @@
                             <outlet property="delegate" destination="2SD-Uk-V5X" id="ymQ-wD-nBi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="k4e-tK-uef"/>
+                    <navigationItem key="navigationItem" id="k4e-tK-uef">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BqN-qa-xSM">
+                            <connections>
+                                <segue destination="tpb-ab-YbN" kind="show" id="Hhg-BK-nJt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXS-9n-qwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-264" y="82"/>
+        </scene>
+        <!--New Journal Entry View Controller-->
+        <scene sceneID="GPd-uQ-CJ0">
+            <objects>
+                <viewController id="tpb-ab-YbN" customClass="NewJournalEntryViewController" customModule="JournalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3j2-M1-3Yc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aGg-cv-Onx">
+                                <rect key="frame" x="87" y="140" width="240" height="406"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GgP-Pg-p9l"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2HW-Nk-GIY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9f8-Eh-SXu">
+                            <connections>
+                                <action selector="save:" destination="tpb-ab-YbN" id="CDY-Ci-dt5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="journalEntryText" destination="aGg-cv-Onx" id="Xx9-7D-vR7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNC-of-YL5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669.56521739130437" y="-272.54464285714283"/>
         </scene>
         <!--Journal Entry View Controller-->
         <scene sceneID="bSR-ZA-QkY">
@@ -67,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyI-cA-qIr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652.17391304347836" y="-163.39285714285714"/>
+            <point key="canvasLocation" x="674" y="514"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qui-FH-kSR">
